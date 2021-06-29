@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 7629582968545013451}
   - component: {fileID: 7419896021187538794}
   m_Layer: 6
-  m_Name: Agent
+  m_Name: FoodCollectorAgent
   m_TagString: agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
