@@ -46,15 +46,33 @@ namespace MBaske.Sensors.Util
         /// <returns>Editor for SerializedObject</returns>
         public static Editor GetEditor(SerializedObject obj)
         {
-            foreach (var item in ActiveEditorTracker.sharedTracker.activeEditors)
+            foreach (var editor in ActiveEditorTracker.sharedTracker.activeEditors)
             {
-                if (item.serializedObject == obj)
+                if (editor.serializedObject == obj)
                 {
-                    return item;
+                    return editor;
                 }
             }
 
             throw new MissingComponentException("Editor not available for " + obj);
+        }
+
+        /// <summary>
+        /// Hides the BehaviorParametersEditor inspector.
+        /// </summary>
+        // Workaround for https://github.com/Unity-Technologies/ml-agents/issues/5443
+        public static void HideBehaviorParametersEditor()
+        {
+            var tracker = ActiveEditorTracker.sharedTracker;
+            var editors = tracker.activeEditors;
+            for (int i = 0; i < editors.Length; i++)
+            {
+                // Can't check type because BehaviorParametersEditor is internal.
+                if (editors[i].ToString() == " (Unity.MLAgents.Editor.BehaviorParametersEditor)")
+                {
+                    tracker.SetVisible(i, 0);
+                }
+            }
         }
     }
 }

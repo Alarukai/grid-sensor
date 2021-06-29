@@ -215,6 +215,13 @@ namespace MBaske.Sensors.Grid
             m_UndoCallbacks?.Clear();
             Undo.undoRedoPerformed -= OnUndoRedo;
         }
+
+        protected override void HandleValidate() 
+        {
+            // TODO Implement proper Undo/Redo handling for 
+            // adding and removing detectable objects.
+            ValidateGameObjectSettings();
+        }
 #endif
 
 

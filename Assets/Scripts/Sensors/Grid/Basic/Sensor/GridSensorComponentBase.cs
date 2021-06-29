@@ -2,6 +2,7 @@
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using NaughtyAttributes;
+using MBaske.Sensors.Util;
 using System.Collections.Generic;
 using System.Collections;
 using System;
@@ -120,7 +121,7 @@ namespace MBaske.Sensors.Grid
         [Foldout("Debug")]
         [Label("Auto-Create Sensor")]
         [Tooltip("Whether this component should create its sensor on Awake(). Select " +
-            "option to test a standalone sensor component not attached to an agent.")]
+            "option to test a stand-alone sensor component not attached to an agent.")]
         private bool m_Debug_CreateSensorOnAwake;
 
         [SerializeField]
@@ -242,11 +243,14 @@ namespace MBaske.Sensors.Grid
         public override ISensor[] CreateSensors()
         {
 #if (UNITY_EDITOR)
+            if (Application.isPlaying)
+            {
+                EditorUtil.HideBehaviorParametersEditor();
+            }
             // Debug: handle sensor created on end of frame.
             StopRunningCoroutine(m_Debug_CR_SensorCreatedEOF);
             m_Debug_CR_SensorCreatedEOF = RunCoroutine(Debug_CR_SensorCreatedEOF());
 #endif
-
             m_GridSensor = new GridSensor(
                 m_SensorName, m_GridBuffer, m_CompressionType, m_ObservationType);
 
@@ -431,7 +435,15 @@ namespace MBaske.Sensors.Grid
             {
                 Debug_CreateSensorOnValidate();
             }
+            else
+            {
+                // TODO should always catch specific changes,
+                // rather than general OnValidate.
+                HandleValidate();
+            }
         }
+
+        protected virtual void HandleValidate() { }
 
         private void FixedUpdate()
         {
@@ -446,8 +458,6 @@ namespace MBaske.Sensors.Grid
         #endregion
 
 #endif
-
-
 
         // Reset
 

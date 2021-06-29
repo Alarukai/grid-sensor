@@ -64,9 +64,10 @@ MonoBehaviour:
   m_ChannelLabels: []
   m_Debug_CreateSensorOnAwake: 0
   m_Debug_CreateSensorOnValidate: 1
-  m_Debug_UpdateInterval: 1
+  m_Debug_FrameInterval: 1
   m_Debug_DrawGridBuffer: 0
   m_Debug_GridBufferDrawer:
+    Context: {fileID: 0}
     Editor: {fileID: 0}
     GridSizeRatio: 0
     IsEnabled: 0
@@ -739,7 +740,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3522763159582465864}
-  - component: {fileID: 6142267950540552103}
   - component: {fileID: 486234732805736458}
   - component: {fileID: 380588080002475484}
   m_Layer: 7
@@ -763,18 +763,6 @@ Transform:
   m_Father: {fileID: 2705286137011316497}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6142267950540552103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7933111287531128144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8abecd5902d09449e947799d9330a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &486234732805736458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,9 +795,10 @@ MonoBehaviour:
   m_ChannelLabels: []
   m_Debug_CreateSensorOnAwake: 0
   m_Debug_CreateSensorOnValidate: 1
-  m_Debug_UpdateInterval: 1
+  m_Debug_FrameInterval: 1
   m_Debug_DrawGridBuffer: 0
   m_Debug_GridBufferDrawer:
+    Context: {fileID: 0}
     Editor: {fileID: 0}
     GridSizeRatio: 0
     IsEnabled: 0

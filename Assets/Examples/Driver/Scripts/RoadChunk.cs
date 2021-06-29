@@ -17,6 +17,9 @@ namespace MBaske.Driver
         // Lateral spacing for cones and barrels.
         private static readonly float s_Spacing = c_RoadExtent / (c_Length + 1f);
 
+        [SerializeField]
+        private float m_ObstacleProbability = 0.1f;
+
         private Mesh m_Mesh;
         private MeshFilter m_MeshFilter;
         private MeshCollider m_MeshCollider;
@@ -63,7 +66,7 @@ namespace MBaske.Driver
         public void UpdateChunk(ReferenceFrame frame, bool isFirstChunk)
         {
             // TBD probabilities for spawning obstacles.
-            bool hasObstacle = !isFirstChunk && Util.RandomBool(0.1f);
+            bool hasObstacle = !isFirstChunk && Util.RandomBool(m_ObstacleProbability);
             // Random ObstacleType. 
             m_ObstacleType = hasObstacle
                 ? (Util.RandomBool(0.2f)

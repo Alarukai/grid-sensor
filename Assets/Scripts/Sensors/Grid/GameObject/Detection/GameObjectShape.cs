@@ -20,7 +20,7 @@ namespace MBaske.Sensors.Grid
 
         #region Point Collections
 
-        // Created by ShapeScanner.
+        // Created by ShapeScanUti.
         [SerializeField, HideInInspector]
         private List<ScanResultLOD> m_ScanResultsByLOD;
         // References ScanResultLOD[LOD].LocalPoints

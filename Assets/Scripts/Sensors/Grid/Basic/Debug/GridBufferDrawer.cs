@@ -124,7 +124,7 @@ namespace MBaske.Sensors.Grid
         };
 
         private static readonly GUIContent s_Msg = new GUIContent(
-                    "<color=#CC6666>Available in Play Mode</color>");
+                    "<color=#CC6666>Available in Game Play Mode</color>");
 
         private static readonly Color s_BGColor = new Color32(32, 32, 32, 255);
 

@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145810897286372428, guid: 732a14a66403b304a8fe14884718ac1c, type: 3}
       propertyPath: m_Debug_DrawGridBuffer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9145810897286372428, guid: 732a14a66403b304a8fe14884718ac1c, type: 3}
       propertyPath: m_Debug_GridBufferDrawer.Editor
